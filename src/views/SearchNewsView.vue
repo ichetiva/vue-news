@@ -1,5 +1,5 @@
 <script>
-import NewsItem from '../components/NewsItem.vue'
+import ArticleItem from '../components/ArticleItem.vue'
 import api from '../stores/news'
 
 export default {
@@ -16,7 +16,7 @@ export default {
       else this.news = await api.searchNews(this.query, this.page)
     }
   },
-  components: { NewsItem }
+  components: { ArticleItem }
 }
 </script>
 <template>
@@ -34,7 +34,7 @@ export default {
       </table>
     </form>
     <div v-if="news.length" class="list">
-      <NewsItem v-for="newsItem in news" :news="newsItem" :key="newsItem.id"></NewsItem>
+      <ArticleItem v-for="article in news" :article="article" :key="article.id" />
     </div>
     <h3 v-else>Type something and click 'Seach' to find matched news</h3>
   </div>

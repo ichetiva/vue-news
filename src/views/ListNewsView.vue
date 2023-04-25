@@ -1,6 +1,6 @@
 <script>
 import ChangePage from '../components/ChangePage.vue'
-import NewsItem from '../components/NewsItem.vue'
+import ArticleItem from '../components/ArticleItem.vue'
 import api from '../stores/news'
 
 export default {
@@ -33,7 +33,7 @@ export default {
       await this.getNews()
     }
   },
-  components: { ChangePage, NewsItem }
+  components: { ChangePage, ArticleItem }
 }
 </script>
 
@@ -42,7 +42,7 @@ export default {
     <ChangePage :page="page" />
 
     <div class="news">
-      <NewsItem v-for="newsItem in news" :news="newsItem" :key="newsItem.id"></NewsItem>
+      <ArticleItem v-for="article in news" :article="article" :key="article.id" />
     </div>
 
     <ChangePage :page="page" />
